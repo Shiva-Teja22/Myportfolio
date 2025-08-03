@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shiva_the_developer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+      background: black;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .laptop {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #ddd;
+      border: 4px solid #555;
+      border-radius: 12px;
+      padding: 20px;
+      width: 300px;
+    }
+
+    .screen {
+      background-color: #000;
+      width: 100%;
+      height: 180px;
+      border-radius: 6px;
+      box-shadow: inset 0 0 6px #0f0;
+    }
+
+    .keyboard {
+      background-color: #fff;
+      width: 100%;
+      height: 80px;
+      margin-top: 10px;
+      border-radius: 4px;
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 4px;
+      padding: 6px;
+    }
+
+    .keyboard::before {
+      content: '';
+      display: block;
+      height: 10px;
+      background: #fff;
+      width: 80%;
+      margin: 0 auto;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="main">
+    <div class="laptop">
+      <div class="screen"></div>
+      <div class="keyboard"></div>
+    </div>
+  </div>
+</body>
+</html>
