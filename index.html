@@ -18,9 +18,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      background: #000;
     }
 
-    /* Fullscreen background video */
     video.bg-video {
       position: fixed;
       top: 0;
@@ -31,10 +31,14 @@
       z-index: -1;
     }
 
+    .scale-container {
+      transform: scale(0.75);
+      transform-origin: center;
+    }
+
     .stage {
       perspective: 1000px;
       perspective-origin: center;
-      transform: scale(0.75);
     }
 
     .laptop {
@@ -44,15 +48,16 @@
       align-items: center;
     }
 
-    .screen-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .screen-container,
+    .keyboard-container {
       background-color: #ddd;
       border: 3px solid #555;
       border-radius: 10px;
       padding: 16px;
       width: 240px;
+    }
+
+    .screen-container {
       margin-bottom: 0px;
     }
 
@@ -62,7 +67,6 @@
       height: 144px;
       border-radius: 5px;
       box-shadow: inset 0 0 5px #0f0;
-      position: relative;
     }
 
     .keyboard-container {
@@ -72,11 +76,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      background-color: #ddd;
-      border: 3px solid #555;
-      border-radius: 10px;
-      padding: 16px;
-      width: 240px;
     }
 
     .keyboard {
@@ -128,6 +127,13 @@
       border-radius: 0 0 6px 6px;
       box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5);
     }
+
+    /* ✅ Responsive scaling for small screens */
+    @media (max-width: 600px) {
+      .scale-container {
+        transform: scale(0.6);
+      }
+    }
   </style>
 </head>
 <body>
@@ -140,40 +146,42 @@
 
   <!-- Laptop UI -->
   <div id="main">
-    <div class="stage">
-      <div class="laptop">
-        <div class="screen-container">
-          <div class="screen"></div>
-        </div>
-        <div class="keyboard-container">
-          <div class="keyboard">
-            <!-- 58 keys -->
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div>
-            <div class="key"></div><div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div>
-            <div class="key"></div><div class="key"></div><div class="key"></div>
+    <div class="scale-container">
+      <div class="stage">
+        <div class="laptop">
+          <div class="screen-container">
+            <div class="screen"></div>
           </div>
-          <div class="cursorpad"></div>
+          <div class="keyboard-container">
+            <div class="keyboard">
+              <!-- 58 keys -->
+              <!-- You can use JavaScript to generate this dynamically if needed -->
+              <!-- ... (your key divs remain unchanged) ... -->
+              <!-- Keeping this static for clarity -->
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+              <div class="key"></div><div class="key"></div>
+              <div class="key"></div>
+              <div class="key"></div>
+              <div class="key"></div>
+              <div class="key"></div><div class="key"></div><div class="key"></div>
+            </div>
+            <div class="cursorpad"></div>
+          </div>
         </div>
       </div>
     </div>
-    
   </div>
 </body>
 </html>
-
-
