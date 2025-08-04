@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shiva_the_developer</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <style>
     * {
       margin: 0;
@@ -32,7 +33,7 @@
     }
 
     .scale-container {
-      transform: scale(0.75);
+      transform: scale(.735);
       transform-origin: center;
     }
 
@@ -64,9 +65,34 @@
     .screen {
       background-color: #000;
       width: 100%;
+      text-align: center;
+      color: #fff;
       height: 144px;
       border-radius: 5px;
       box-shadow: inset 0 0 5px #0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      flex-direction: column;
+      font-family: monospace;
+      position: relative;
+    }
+
+    .screen button {
+      all: unset;
+      color: #0f0;
+      font-family: monospace;
+      text-shadow: 0 0 5px #0f0;
+      cursor: pointer;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
+    }
+
+    .screen button:active {
+      transform: scale(0.95);
+      box-shadow: 0 0 5px #0f0;
+      background-color: #0f0;
+      color: #000;
     }
 
     .keyboard-container {
@@ -128,37 +154,109 @@
       box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5);
     }
 
-    /* ✅ Responsive scaling for small screens */
-    @media (max-width: 600px) {
-      .scale-container {
-        transform: scale(0.6);
-      }
+    .desktop {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, #1c1f26, #2a2f3a);
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-family: monospace;
+      color: white;
+      display: none;
+      padding-top: 22px;
     }
+
+    .topbar {
+      height: 24px;
+      background: #222;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 10px;
+      font-size: 12px;
+      color: #ccc;
+      border-bottom: 1px solid #555;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+
+    .icons {
+      padding: 5px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .icon {
+      width: 20px;
+      text-align: center;
+      cursor: pointer;
+      gap: 4px;
+    }
+
+    .icon img {
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+    }
+
+    .icon span {
+      font-size: 5px;
+      color: #ddd;
+      display: flex;
+      flex-direction: row;
+    }
+
+    #project{
+      padding-top: 18px;
+    }
+
+  
   </style>
 </head>
 <body>
 
-  <!-- Background Video -->
   <video class="bg-video" autoplay muted loop>
-    <source src="tiny.mp4" type="video/mp4" />
+    <source src="small.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
-  <!-- Laptop UI -->
   <div id="main">
     <div class="scale-container">
       <div class="stage">
         <div class="laptop">
           <div class="screen-container">
-            <div class="screen"></div>
+            <div class="screen">
+              <button id="bootBtn">click_here</button>
+              <div id="loadingText" style="display: none; color:#0f0;">Loading ShivaOS...</div>
+              <div class="desktop" id="desktop">
+                <div class="topbar">
+                  <div class="left">🖥️ Shiva_OS</div>
+                  <div class="right"><span id="time"></span> 🔉 🔋</div>
+                </div>
+                <div class="icons">
+                  <div class="icon">
+                    <img class="project" src="gare.jpg" alt="Projects" />
+                    <span>Projects</span>
+                  </div>
+                  <div class="icon">
+                    <img src="Aboutme.jpg" alt="About Me" />
+                    <span>About Me</span>
+                  </div>
+                  <div class="icon">
+                    <img src="contact.png" alt="Contact" />
+                    <span>Contact</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="keyboard-container">
             <div class="keyboard">
-              <!-- 58 keys -->
-              <!-- You can use JavaScript to generate this dynamically if needed -->
-              <!-- ... (your key divs remain unchanged) ... -->
-              <!-- Keeping this static for clarity -->
-              <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
+             <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
               <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
               <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
               <div class="key"></div><div class="key"></div><div class="key"></div><div class="key"></div>
@@ -183,5 +281,41 @@
       </div>
     </div>
   </div>
+
+  <script>
+    const button = document.getElementById('bootBtn');
+    const scaleContainer = document.querySelector('.scale-container');
+    const desktop = document.getElementById('desktop');
+    const loadingText = document.getElementById('loadingText');
+
+    button.addEventListener('click', () => {
+      button.style.display = 'none';
+      loadingText.style.display = 'block';
+
+      anime({
+        targets: scaleContainer,
+        scale: 2,
+        duration: 1200,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          desktop.style.display = 'block';
+          loadingText.style.display = 'none';
+        }
+      });
+    });
+
+    function updateTime() {
+      const timeEl = document.getElementById('time');
+      const now = new Date();
+      timeEl.textContent = now.toLocaleTimeString([], {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+    }
+
+    setInterval(updateTime, 1000);
+    updateTime();
+  </script>
+
 </body>
 </html>
