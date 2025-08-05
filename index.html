@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shiva_the_developer</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <style>
     * {
@@ -186,13 +189,15 @@
       padding: 5px;
       display: flex;
       flex-direction: column;
+      gap: 3px;
     }
 
     .icon {
       width: 20px;
       text-align: center;
       cursor: pointer;
-      gap: 4px;
+      gap: 3px;
+      text-align: center;
     }
 
     .icon img {
@@ -204,15 +209,228 @@
     }
 
     .icon span {
+      text-align: center;
       font-size: 5px;
       color: #ddd;
       display: flex;
       flex-direction: row;
     }
 
+    .icon i{
+      box-shadow:inset 0 2px 3px rgba(249, 247, 247, 0.5);
+      border-radius: 1.999px;
+    }
+
+    .icon i:hover{
+      color: #b91df1;
+      background-color: #e2a3f9;
+      box-shadow: 0px 0px 20px rgba(160, 1, 252, 0.742);
+    }
+
+    .content-area {
+  display: flex;
+  align-items: center;    
+  gap: 16px;              
+}
+
+
+
+@keyframes glowPulse {
+  0%, 100% {
+     text-shadow: 0 0 5px #4f46e4, 0 0 10px#4f46e4, 0 0 20px #4f46e4;
+  }
+  50% {
+    text-shadow: 0 0 5px #4f46e4, 0 0 10px #4f46e4, 0 0 20px #4f46e4;
+  }
+}
+
+.welcome-display {
+  font-family: 'Dancing Script', cursive;
+  font-size: 23px;
+  color: #4f46e4;
+  animation: glowPulse 1.5s infinite ease-in-out;
+  cursor: alias;
+}
+
+
     #project{
       padding-top: 18px;
     }
+
+    .tab-window {
+  position: absolute;
+  top: 15vh; /* push it above the laptop screen */
+  left: 60vw;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 180px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 10;
+  font-family: monospace;
+  color: #fff;
+}
+
+  .tab-window1 {
+  position: absolute;
+  top: 40vh; 
+  left: 78vw;
+  transform: translateX(-50%);
+  width: 250px;
+  height: 200px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 10;
+  font-family: monospace;
+  color: #fff;
+}
+
+
+ .tab-window2 {
+  position: absolute;
+  top: 27vh; 
+  left: 18vw;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 180px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 10;
+  font-family: monospace;
+  color: #fff;
+}
+
+.tab-window3 {
+  position: absolute;
+  top: 57vh; 
+  left: 8vw;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 180px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 12;
+  font-family: monospace;
+  color: #fff;
+}
+
+.tab-window4 {
+  position: absolute;
+  top: 20vh; 
+  left: 72vw;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 180px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 12;
+  font-family: monospace;
+  color: #fff;
+}
+
+.tab-window5 {
+  position: absolute;
+  top: 24vh; 
+  left: 76vw;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 180px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 12;
+  font-family: monospace;
+  color: #fff;
+}
+
+.tab-header {
+  background: #333;
+  padding: 5px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  border-bottom: 1px solid #444;
+}
+
+.tab-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tab-header button:hover {
+  color: #ff5c5c;
+}
+
+.tab-content {
+  padding: 10px;
+  font-size: 13px;
+}
+
+.tab-content img{
+  align-items: center;
+  width: 165px;
+  height: 140px;  
+}
+
+#homeTab-content {
+      width: 20px;
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      text-align: center;
+}
+
+#homeTab-content span {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  gap: 4px; /* cleaner spacing */
+}
+
+#homeTab-content img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
+    }
+
+    #homeTab-content i{
+      display: inline;
+      margin-left: 5px;
+      padding-left: 5px;
+    }
+
+    #skillsTab .tab-content ul {
+  padding-left: 15px ;
+  font-family: 'Courier New', Courier, monospace;
+  color: #00ff00;
+}
+
+#skillsTab .tab-content ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+  position: relative;
+  padding-left: 5px;
+  animation: hackerGlitch 1.5s infinite alternate ease-in-out;
+}
 
   
   </style>
@@ -220,7 +438,7 @@
 <body>
 
   <video class="bg-video" autoplay muted loop>
-    <source src="small.mp4" type="video/mp4" />
+    <source src="matrix.mp4" type="video/mp4" />
     Your browser does not support the video tag.
   </video>
 
@@ -237,20 +455,30 @@
                   <div class="left">🖥️ Shiva_OS</div>
                   <div class="right"><span id="time"></span> 🔉 🔋</div>
                 </div>
+                <div class="content-area">
                 <div class="icons">
-                  <div class="icon">
-                    <img class="project" src="gare.jpg" alt="Projects" />
-                    <span>Projects</span>
+                  <div id="home" class="icon">
+                    <i class="ri-home-2-line"></i>
+                    <span>Home</span>
                   </div>
-                  <div class="icon">
-                    <img src="Aboutme.jpg" alt="About Me" />
-                    <span>About Me</span>
+                  <div id="skills" class="icon">
+                    <i class="ri-line-chart-fill"></i>
+                    <span>skills</span>
                   </div>
-                  <div class="icon">
-                    <img src="contact.png" alt="Contact" />
-                    <span>Contact</span>
+                  <div id="Aboutme" class="icon">
+                    <i class="ri-information-2-line"></i>
+                    <span>Aboutme</span>
                   </div>
+                    <div id="Education" class="icon">
+                      <i class="ri-graduation-cap-fill"></i>
+                      <span>Education</span>
+                    </div>
+                  
+
                 </div>
+                <div class="welcome-display">
+                 <span id="typewriter"> welcome to my website.!!</span>
+                </div></div>
               </div>
             </div>
           </div>
@@ -280,13 +508,113 @@
         </div>
       </div>
     </div>
+    <div id="homeTab" class="tab-window" style="display: none;">
+  <div class="tab-header">
+    <span><i class="ri-home-2-line"></i>Home</span>
+    <button id="closeHomeTab">✖</button>
   </div>
+  <div  class="tab-content">
+  </div>
+  <div id="homeTab-content" style="display: flex; flex-direction: column; gap: 3px;">
+  <div id="mypic" style="display: flex; align-items: center; gap: 5px;">
+    <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
+    <span>mypic</span>
+  </div>
+  
+  <div id="Mrbob" style="display: flex; align-items: center; gap: 2px;">
+    <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
+    <span>Mr.bob</span>
+  </div>
+  
+  <div id="Newfolder" style="display: flex; align-items: center; gap: 2px;">
+    <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
+    <span>Newfolder</span>
+  </div>
+</div>
+
+
+</div>
+
+    <div id="EducationTab" class="tab-window3" style="display: none;">
+  <div class="tab-header">
+    <span><i class="ri-graduation-cap-fill"></i>Education</span>
+    <button id="closeHomeTab3">✖</button>
+  </div>
+  <div class="tab-content">
+  </div></div>
+
+    <div id="skillsTab" class="tab-window1" style="display: none;">
+  <div class="tab-header">
+    <span><i class="ri-line-chart-fill"></i>SkillsTab</span>
+    <button id="closeHomeTab1">✖</button>
+  </div>
+  <div class="tab-content">
+    <ul>
+      <li>UI/UX</li>
+      <li>Web dev<br>[front-end & Backend]</li>
+      <li>App Design</li>
+      <li>Others<br>[Github, Vim, and figma]</li>
+    </ul>
+  </div>
+</div>
+
+   <div id="AboutmeTab" class="tab-window2" style="display: none;">
+  <div class="tab-header">
+    <span><i class="ri-information-2-line"></i>Aboutme</span>
+    <button id="closeHomeTab2">✖</button>
+  </div>
+  <div class="tab-content">
+    
+  </div>
+</div>
+<div id="mypicTab" class="tab-window4" style="display: none;">
+  <div class="tab-header">
+    <span><i class="ri-star-fill"></i>-Its me</span>
+    <button id="closeHomeTab4">✖</button>
+  </div>
+  <div class="tab-content" style="align-items: center;">
+    <img src="mypic.jpeg" alt="">
+  </div>
+</div>
+
+<div id="MrbobTab" class="tab-window5" style="display: none;">
+  <div class="tab-header">
+    <span><i class="fas fa-cat"></i>-Its Mr. Bob</span>
+    <button id="closeHomeTab5">✖</button>
+  </div>
+  <div class="tab-content" style="align-items: center;">
+    <img src="mrbob.jpg" alt="">
+  </div>
+</div>
+
+</div>
+  
 
   <script>
     const button = document.getElementById('bootBtn');
     const scaleContainer = document.querySelector('.scale-container');
     const desktop = document.getElementById('desktop');
     const loadingText = document.getElementById('loadingText');
+    const home = document.getElementById('home');
+    const skills = document.getElementById('skills');
+    const Aboutme = document.getElementById('Aboutme');
+    const Education = document.getElementById('Education');
+    const skillsTab = document.getElementById('skillsTab');
+    const homeTab = document.getElementById('homeTab');
+    const AboutmeTab = document.getElementById('AboutmeTab');
+    const EducationTab = document.getElementById('EducationTab');
+
+    const closeHomeTab = document.getElementById('closeHomeTab')
+    const closeHomeTab1 = document.getElementById('closeHomeTab1')
+    const closeHomeTab2 = document.getElementById('closeHomeTab2')
+    const closeHomeTab3 = document.getElementById('closeHomeTab3')
+    const closeHomeTab4 = document.getElementById('closeHomeTab4')
+    const closeHomeTab5 = document.getElementById('closeHomeTab5')
+
+    const mypic = document.getElementById('mypic');
+    const mypicTab = document.getElementById('mypicTab');
+    const Mrbob = document.getElementById('Mrbob');
+    const MrbobTab = document.getElementById('MrbobTab');
 
     button.addEventListener('click', () => {
       button.style.display = 'none';
@@ -294,12 +622,192 @@
 
       anime({
         targets: scaleContainer,
-        scale: 2,
+        scale: 2.1,
         duration: 1200,
         easing: 'easeInOutQuad',
         complete: () => {
           desktop.style.display = 'block';
           loadingText.style.display = 'none';
+        }
+      });
+    });
+
+     home.addEventListener('click', () => {
+      homeTab.style.display = 'block';
+
+      anime({
+        targets: homeTab,
+        scale: 1.5,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          homeTab.style.display = 'block';
+         
+        }
+      });
+    });
+
+    skills.addEventListener('click', () => {
+      skillsTab.style.display = 'block';
+
+      anime({
+        targets: skillsTab,
+        scale: 1.5,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          skillsTab.style.display = 'block';
+         
+        }
+      });
+    });
+
+     Aboutme.addEventListener('click', () => {
+      AboutmeTab.style.display = 'block';
+
+      anime({
+        targets: AboutmeTab,
+        scale: 1.8,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          AboutmeTab.style.display = 'block';
+         
+        }
+      });
+    });
+
+    Education.addEventListener('click', () => {
+      EducationTab.style.display = 'block';
+
+      anime({
+        targets: EducationTab,
+        scale: 1.4,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          EducationTab.style.display = 'block';
+         
+        }
+      });
+    });
+
+    mypic.addEventListener('click', () => {
+      mypicTab.style.display = 'block';
+
+      anime({
+        targets: mypicTab,
+        scale: 1.1,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          mypicTab.style.display = 'block';
+         
+        }
+      });
+    });
+
+     Mrbob.addEventListener('click', () => {
+      MrbobTab.style.display = 'block';
+
+      anime({
+        targets: MrbobTab,
+        scale: 1.1,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          MrbobTab.style.display = 'block';
+         
+        }
+      });
+    });
+
+    closeHomeTab.addEventListener('click', () => {
+      homeTab.style.display = 'block';
+
+      anime({
+        targets: homeTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          homeTab.style.display = 'none';
+         
+        }
+      });
+    });
+
+    closeHomeTab1.addEventListener('click', () => {
+      skillsTab.style.display = 'block';
+
+      anime({
+        targets: skillsTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          skillsTab.style.display = 'none';
+         
+        }
+      });
+    });
+
+    closeHomeTab2.addEventListener('click', () => {
+      AboutmeTab.style.display = 'block';
+
+      anime({
+        targets: AboutmeTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          AboutmeTab.style.display = 'none';
+         
+        }
+      });
+    });
+
+    closeHomeTab3.addEventListener('click', () => {
+      EducationTab.style.display = 'block';
+
+      anime({
+        targets: EducationTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          EducationTab.style.display = 'none';
+         
+        }
+      });
+    });
+
+    closeHomeTab4.addEventListener('click', () => {
+      mypicTab.style.display = 'block';
+
+      anime({
+        targets: mypicTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          mypicTab.style.display = 'none';
+         
+        }
+      });
+    });
+
+    closeHomeTab5.addEventListener('click', () => {
+      MrbobTab.style.display = 'block';
+
+      anime({
+        targets: MrbobTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          MrbobTab.style.display = 'none';
+         
         }
       });
     });
@@ -315,6 +823,10 @@
 
     setInterval(updateTime, 1000);
     updateTime();
+
+    
+
+    
   </script>
 
 </body>
