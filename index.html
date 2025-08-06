@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -245,9 +246,9 @@
 }
 
 .welcome-display {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Dancing Script', cursive;
   font-size: 23px;
-  color: #4f46e4;
+  color:#0f0;
   animation: glowPulse 1.5s infinite ease-in-out;
   cursor: alias;
 }
@@ -284,7 +285,7 @@
   border: 2px solid #555;
   border-radius: 6px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-  z-index: 10;
+  z-index: 20;
   font-family: monospace;
   color: #fff;
 }
@@ -419,7 +420,6 @@
     }
 
     #skillsTab .tab-content ul {
-  padding-left: 15px ;
   font-family: 'Courier New', Courier, monospace;
   color: #00ff00;
 }
@@ -428,11 +428,34 @@
   margin-bottom: 10px;
   font-size: 14px;
   position: relative;
-  padding-left: 5px;
   animation: hackerGlitch 1.5s infinite alternate ease-in-out;
 }
 
-  
+
+
+.hacker-ul {
+  list-style: none;
+  padding: 0;
+}
+
+.hacker-ul li .Education-ul li{
+
+  font-size: 15px;
+  position: relative;
+}
+
+.hacker-ul li br {
+  padding-left: 6px;
+}
+
+  .Education-ul{
+     list-style: none;
+  }
+
+  .Education-ul li span{
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
   </style>
 </head>
 <body>
@@ -541,7 +564,17 @@
     <button id="closeHomeTab3">✖</button>
   </div>
   <div class="tab-content">
+    <ul class="Education-ul">
+  <li>🏫 <span>School</span></li>
+  <li>🏛️ <span>Diploma</span></li>
+  <li>🎓 <span>Engineer</span></li>
+  <li>✚ <span>Courses+</span></li>
+</ul>
   </div></div>
+
+  <div id="school" style="display: none;">St. John's Church High School</div>
+  <div id="Diploma" style="display: none;">Govt. Polytechnic College(Masab-Tank)</div>
+  <div id="engg" style="display: none;">MVSR Engineering College [CS&IT]</div>
 
     <div id="skillsTab" class="tab-window1" style="display: none;">
   <div class="tab-header">
@@ -549,12 +582,14 @@
     <button id="closeHomeTab1">✖</button>
   </div>
   <div class="tab-content">
-    <ul>
-      <li>UI/UX</li>
-      <li>Web dev<br>[front-end & Backend]</li>
-      <li>App Design</li>
-      <li>Others<br>[Github, Vim, and figma]</li>
-    </ul>
+  
+<ul class="hacker-ul">
+  <li><span>--></span>  UI/UX</li>
+  <li><span>--></span>  Web dev<br>[front-end & Backend]</li>
+  <li><span>--></span>  App Design</li>
+  <li><span>--></span>  Others<br>[Github, Vim, and Figma]</li>
+</ul>
+
   </div>
 </div>
 
