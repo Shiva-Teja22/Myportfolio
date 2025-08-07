@@ -23,8 +23,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #000;
     }
+
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg,#001000); /* Modern purple gradient */
+  color: #ffffff;
+}
+
 
     video.bg-video {
       position: fixed;
@@ -37,7 +43,7 @@
     }
 
     .scale-container {
-      transform: scale(.735);
+      transform: scale(.885);
       transform-origin: center;
     }
 
@@ -55,7 +61,7 @@
 
     .screen-container,
     .keyboard-container {
-      background-color: #ddd;
+      background-color: #9fb5fc;
       border: 3px solid #555;
       border-radius: 10px;
       padding: 16px;
@@ -109,7 +115,7 @@
     }
 
     .keyboard {
-      background-color: #fff;
+      background-color: #b7efff;
       width: 100%;
       height: 80px;
       border-radius: 3px;
@@ -124,7 +130,7 @@
       content: '';
       display: block;
       height: 8px;
-      background: #fff;
+      background: #0e0d0d;
       width: 80%;
       margin: 0 auto 3px;
       border-radius: 4px;
@@ -216,16 +222,12 @@
       display: flex;
       flex-direction: row;
     }
-
-    .icon i{
-      box-shadow:inset 0 2px 3px rgba(249, 247, 247, 0.5);
-      border-radius: 1.999px;
+    #home{
+      align-items: center;
     }
 
     .icon i:hover{
-      color: #b91df1;
-      background-color: #e2a3f9;
-      box-shadow: 0px 0px 20px rgba(160, 1, 252, 0.742);
+      color: #54c9ff;
     }
 
     .content-area {
@@ -276,8 +278,8 @@
 
   .tab-window1 {
   position: absolute;
-  top: 40vh; 
-  left: 78vw;
+  top: 42vh; 
+  left: 72vw;
   transform: translateX(-50%);
   width: 250px;
   height: 200px;
@@ -293,8 +295,8 @@
 
  .tab-window2 {
   position: absolute;
-  top: 27vh; 
-  left: 18vw;
+  top: 15vh; 
+  left: 11vw;
   transform: translateX(-50%);
   width: 220px;
   height: 180px;
@@ -385,7 +387,8 @@
 .tab-content img{
   align-items: center;
   width: 165px;
-  height: 140px;  
+  height: 140px;
+  object-fit: cover;  
 }
 
 #homeTab-content {
@@ -420,13 +423,20 @@
     }
 
     #skillsTab .tab-content ul {
-  font-family: 'Courier New', Courier, monospace;
-  color: #00ff00;
+      font-family: fantasy;
+  color: #52c4f9;
+  font-size: 10px;
+  font-weight: 10;
+  font-size: medium;
+  text-decoration: wavy;
 }
 
 #skillsTab .tab-content ul li {
   margin-bottom: 10px;
-  font-size: 14px;
+  font-size: 10px;
+  font-weight: 10;
+  font-size: medium;
+  text-decoration: wavy;
   position: relative;
   animation: hackerGlitch 1.5s infinite alternate ease-in-out;
 }
@@ -444,8 +454,10 @@
   position: relative;
 }
 
-.hacker-ul li br {
+.Education-ul li {
   padding-left: 6px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
 }
 
   .Education-ul{
@@ -456,14 +468,57 @@
     margin-bottom: 10px;
     text-decoration: underline;
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  width: max-content;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) scale(0.95);
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: nowrap;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+
+#typewriter::after {
+  content: '|';
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
   </style>
 </head>
 <body>
 
-  <video class="bg-video" autoplay muted loop>
-    <source src="glitch.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
+  
 
   <div id="main">
     <div class="scale-container">
@@ -480,19 +535,19 @@
                 </div>
                 <div class="content-area">
                 <div class="icons">
-                  <div id="home" class="icon">
+                  <div id="home" class="icon" style="display: flex; flex-direction: column; align-items: center;">
                     <i class="ri-home-2-line"></i>
                     <span>Home</span>
                   </div>
-                  <div id="skills" class="icon">
+                  <div id="skills" class="icon" style="display: flex; flex-direction: column; align-items: center;">
                     <i class="ri-line-chart-fill"></i>
                     <span>skills</span>
                   </div>
-                  <div id="Aboutme" class="icon">
+                  <div id="Aboutme" class="icon" style="display: flex; flex-direction: column; align-items: center;">
                     <i class="ri-information-2-line"></i>
                     <span>Aboutme</span>
                   </div>
-                    <div id="Education" class="icon">
+                    <div id="Education" class="icon" style="display: flex; flex-direction: column; align-items: center;">
                       <i class="ri-graduation-cap-fill"></i>
                       <span>Education</span>
                     </div>
@@ -565,16 +620,28 @@
   </div>
   <div class="tab-content">
     <ul class="Education-ul">
-  <li>🏫 <span>School</span></li>
-  <li>🏛️ <span>Diploma</span></li>
-  <li>🎓 <span>Engineer</span></li>
-  <li>✚ <span>Courses+</span></li>
+  <li data-target="school" >🏫 <span id="school" class="tooltip">School</span></li>
+  <li data-target="Diploma" >🏛️ <span id="Diploma" class="tooltip">Diploma</span></li>
+  <li data-target="engg" >🎓 <span id="engg" class="tooltip">Engineering</span></li>
+  <li >✚ <span>Courses+</span></li>
 </ul>
   </div></div>
 
-  <div id="school" style="display: none;">St. John's Church High School</div>
-  <div id="Diploma" style="display: none;">Govt. Polytechnic College(Masab-Tank)</div>
-  <div id="engg" style="display: none;">MVSR Engineering College [CS&IT]</div>
+  <div id="tooltip" style="
+  position: absolute;
+  background: #000;
+  color: #ff5c5c;
+  padding: 8px 10px;
+  border-radius: 4px;
+  display: none;
+  pointer-events: pointer;
+  font-size: 24px;
+  z-index: 9999;
+  font-family: 'Courier New', Courier, monospace;
+  font-style: oblique;
+  font-style: bold;
+  border-radius: 1000px;
+"></div>
 
     <div id="skillsTab" class="tab-window1" style="display: none;">
   <div class="tab-header">
@@ -584,10 +651,10 @@
   <div class="tab-content">
   
 <ul class="hacker-ul">
-  <li><span>--></span>  UI/UX</li>
-  <li><span>--></span>  Web dev[front-end & Backend]</li>
-  <li><span>--></span>  App Design</li>
-  <li><span>--></span>  Others[Github, Vim, and Figma]</li>
+  <li><span>></span>  UI/UX</li>
+  <li><span>></span>  Web dev [ front-end & Backend ]</li>
+  <li><span>></span>  App Design</li>
+  <li><span>></span>  Others [ Github, Vim, and Figma ]</li>
 </ul>
 
   </div>
@@ -657,7 +724,7 @@
 
       anime({
         targets: scaleContainer,
-        scale: 2.1,
+        scale: 1.8,
         duration: 1200,
         easing: 'easeInOutQuad',
         complete: () => {
@@ -856,10 +923,38 @@
       });
     }
 
+
     setInterval(updateTime, 1000);
     updateTime();
 
-    
+
+  const tooltipData = {
+    school: "⦿ St. John's Church High School",
+    Diploma: "⦿ Govt. Polytechnic College (Masab Tank)",
+    engg: "• MVSR Engineering College [CS&IT]"
+  };
+
+  const tooltip = document.getElementById("tooltip");
+
+  Object.keys(tooltipData).forEach(id => {
+    const element = document.getElementById(id);
+
+    element.addEventListener("mouseenter", (e) => {
+      tooltip.innerText = tooltipData[id];
+      tooltip.style.display = "block";
+      tooltip.style.left = `${e.pageX + 10}px`;
+      tooltip.style.top = `${e.pageY + 10}px`;
+    });
+
+    element.addEventListener("mousemove", (e) => {
+      tooltip.style.left = `${e.pageX + 10}px`;
+      tooltip.style.top = `${e.pageY + 10}px`;
+    });
+
+    element.addEventListener("mouseleave", () => {
+      tooltip.style.display = "none";
+    });
+  });
 
     
   </script>
