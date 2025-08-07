@@ -981,7 +981,7 @@
     const matrixChars = "アァイィウヴエェオカガキギクグケゲコゴサザシジスズセゼソゾタダチッヂヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const letters = matrixChars.split("");
 
-    const fontSize = 10;
+    const fontSize = 13;
     const columns = Math.floor(canvas.width / fontSize);
     const drops = Array(columns).fill(1);
 
@@ -1016,7 +1016,42 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
+
+    function makeDraggable(tabId) {
+    const tab = document.getElementById(tabId);
+    const header = tab.querySelector('.tab-header');
     
+    let offsetX = 0, offsetY = 0, isDragging = false;
+
+    header.style.cursor = 'move';
+
+    header.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      offsetX = e.clientX - tab.offsetLeft;
+      offsetY = e.clientY - tab.offsetTop;
+    });
+
+    document.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      tab.style.left = `${e.clientX - offsetX}px`;
+      tab.style.top = `${e.clientY - offsetY}px`;
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+  }
+
+  // List of all draggable tab IDs
+  const tabs = [
+    'homeTab',
+    'EducationTab',
+    'skillsTab',
+    'AboutmeTab',
+    'mypicTab',
+    'MrbobTab'
+  ];
+    tabs.forEach(makeDraggable);
   </script>
 
 </body>
