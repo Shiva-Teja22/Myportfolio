@@ -518,12 +518,26 @@
 </head>
 <body>
 
-  
+    <canvas id="matrixCanvas" style="  position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 0;"></canvas>
 
   <div id="main">
     <div class="scale-container">
       <div class="stage">
-        <div class="laptop">
+        <div class="laptop" style="position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1; /* above canvas */
+      width: 300px;
+      height: 200px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;">
           <div class="screen-container">
             <div class="screen">
               <button id="bootBtn">click_here</button>
@@ -956,6 +970,52 @@
     });
   });
 
+    const canvas = document.getElementById("matrixCanvas");
+    const ctx = canvas.getContext("2d");
+
+    // Full screen canvas
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    // Matrix characters
+    const matrixChars = "アァイィウヴエェオカガキギクグケゲコゴサザシジスズセゼソゾタダチッヂヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const letters = matrixChars.split("");
+
+    const fontSize = 10;
+    const columns = Math.floor(canvas.width / fontSize);
+    const drops = Array(columns).fill(1);
+
+    function drawMatrix() {
+      // Black background with opacity for trail effect
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      ctx.fillStyle = "#0F0"; // Green text
+      ctx.font = `${fontSize}px monospace`;
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        const x = i * fontSize;
+        const y = drops[i] * fontSize;
+
+        ctx.fillText(text, x, y);
+
+        // Reset drop randomly
+        if (y > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+
+        drops[i]++;
+      }
+    }
+
+    setInterval(drawMatrix, 33);
+
+    // Responsive canvas
+    window.addEventListener("resize", () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
     
   </script>
 
