@@ -860,9 +860,9 @@
   </div>
 </div>
 
-<div id="contactme"class="tab-window9" style="display: none;">
+<div id="contactmeTab"class="tab-window9" style="display: none;">
   <div class="tab-header">
-    <span><i class="fa fa-anchor" aria-hidden="true"></i>-Hobbies</span>
+    <span> @contact_me</span>
     <button id="closeHomeTab9">✖</button>
   </div>
   <div class="tab-content" style="align-items: center;">
@@ -905,6 +905,8 @@
     const infoTab = document.getElementById('infoTab');
     const Hobbies = document.getElementById('Hobbies');
     const hobbiesTab = document.getElementById('hobbiesTab');
+    const contactme = document.getElementById('contactme');
+    const contactmeTab = document.getElementById('contactmeTab');
 
     button.addEventListener('click', () => {
       button.style.display = 'none';
@@ -1057,6 +1059,21 @@
       });
     });
 
+    contactme.addEventListener('click', () => {
+      contactmeTab.style.display = 'block';
+
+      anime({
+        targets: contactmeTab,
+        scale: 1.1,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          contactmeTab.style.display = 'block';
+         
+        }
+      });
+    });
+
     closeHomeTab.addEventListener('click', () => {
       homeTab.style.display = 'block';
 
@@ -1192,6 +1209,21 @@
       });
     });
 
+    closeHomeTab9.addEventListener('click', () => {
+      contactmeTab.style.display = 'block';
+
+      anime({
+        targets: contactmeTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          contactmeTab.style.display = 'none';
+         
+        }
+      });
+    });
+
 
     function updateTime() {
       const timeEl = document.getElementById('time');
@@ -1317,7 +1349,8 @@
     'MrbobTab',
     'shivatejaTab',
     'infoTab',
-    'hobbiesTab'
+    'hobbiesTab',
+    'contactmeTab'
   ];
     tabs.forEach(makeDraggable);
   </script>
