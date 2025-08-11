@@ -196,39 +196,35 @@
       padding: 5px;
       display: flex;
       flex-direction: column;
-      gap: 3px;
+      gap: 2px;
+      font-size: 15px;
     }
 
     .icon {
       width: 20px;
       text-align: center;
       cursor: pointer;
-      gap: 3px;
+      gap: 2px;
       text-align: center;
-    }
-
-    .icon img {
-      border-radius: 50%;
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.2));
     }
 
     .icon span {
       text-align: center;
-      font-size: 5px;
+      font-size: 6.7px;
       color: #ddd;
       display: flex;
+      margin-left: 5px;
       flex-direction: row;
     }
     #home{
       align-items: center;
     }
 
-    .icon i:hover{
-      color: #54c9ff;
-    }
+    .icon:hover span,
+.icon:hover i {
+  color: #54c9ff;
+}
+
 
     .content-area {
   display: flex;
@@ -240,19 +236,62 @@
 
 @keyframes glowPulse {
   0%, 100% {
-     text-shadow: 0 0 5px #4f46e4, 0 0 10px#4f46e4, 0 0 20px #4f46e4;
+     text-shadow: 0 0 5px #ff6a6a81, 0 0 10px#f86f6fa6, 0 0 20px #ff6a6a9b;
   }
   50% {
-    text-shadow: 0 0 5px #4f46e4, 0 0 10px #4f46e4, 0 0 20px #4f46e4;
+    text-shadow: 0 0 5px #f460859a, 0 0 10px #ff6acd91, 0 0 20px #fd4ba187;
   }
 }
 
 .welcome-display {
-  font-family: 'Dancing Script', cursive;
-  font-size: 23px;
-  color:#0f0;
+  font-family: none;
+  font-size: 22px;
+  cursor: alias;           /* stays in place on screen */
+  top: 0;
+  left: 5;
+  width: 60%;
+  height: 100%;              /* full screen height */
+  display: flex;
+  justify-content: center;  
+  align-items: center;       /* center vertically */ 
+  z-index: 16;
+}
+
+.heart{
+  color: rgba(252, 41, 125, 0.559);
+  color:rgba(249, 124, 213, 0.391);
   animation: glowPulse 1.5s infinite ease-in-out;
-  cursor: alias;
+}
+
+.heart:hover {
+  display: block;
+
+}
+
+.lovcode {
+  display: none;
+  position: absolute;
+  background: #000;
+  color: #ff167f;
+  font-size: 12px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 1000px;
+  top: 20px;
+  z-index: 15;
+  object-fit: cover;
+  overflow: hidden;
+  font-family: 'Courier New', Courier, monospace
+}
+
+.welcome-display {
+  position: relative; /* So tooltip positioning works */
+}
+
+.heart:hover + .lovcode {
+  display: block;
 }
 
 
@@ -299,7 +338,7 @@
   left: 11vw;
   transform: translateX(-50%);
   width: 220px;
-  height: 180px;
+  height: 155px;
   background: #1e1e1e;
   border: 2px solid #555;
   border-radius: 6px;
@@ -330,7 +369,7 @@
   top: 20vh; 
   left: 72vw;
   transform: translateX(-50%);
-  width: 220px;
+  width: 187px;
   height: 180px;
   background: #1e1e1e;
   border: 2px solid #555;
@@ -346,7 +385,39 @@
   top: 24vh; 
   left: 76vw;
   transform: translateX(-50%);
-  width: 220px;
+  width: 190px;
+  height: 180px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 12;
+  font-family: monospace;
+  color: #fff;
+}
+
+.tab-window6 {
+  position: absolute;
+  top: 24vh; 
+  left: 46vw;
+  transform: translateX(-50%);
+  width: 190px;
+  height: 180px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 12;
+  font-family: monospace;
+  color: #fff;
+}
+
+.tab-window7 {
+  position: absolute;
+  top: 22vh; 
+  left: 56vw;
+  transform: translateX(-50%);
+  width: 190px;
   height: 180px;
   background: #1e1e1e;
   border: 2px solid #555;
@@ -503,15 +574,11 @@
   transform: translateX(-50%) scale(1);
 }
 
-#typewriter::after {
-  content: '|';
-  animation: blink 0.7s infinite;
-}
-
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
+
 
 
   </style>
@@ -541,11 +608,11 @@
           <div class="screen-container">
             <div class="screen">
               <button id="bootBtn">click_here</button>
-              <div id="loadingText" style="display: none; color:#0f0;">Loading ShivaOS...</div>
+              <div id="loadingText" style="display: none; color:rgb(49, 255, 49);">Loading ShivaOS...</div>
               <div class="desktop" id="desktop">
                 <div class="topbar">
-                  <div class="left">🖥️ Shiva_OS</div>
-                  <div class="right"><span id="time"></span> 🔉 🔋</div>
+                  <div class="left"><i class="ri-computer-fill"></i> Shiva_OS</div>
+                  <div class="right"><span id="time"></span><span> </span> <i class="ri-volume-up-fill"></i><span> </span><i class="ri-battery-charge-fill"></i> </div>
                 </div>
                 <div class="content-area">
                 <div class="icons">
@@ -568,9 +635,11 @@
                   
 
                 </div>
-                <div class="welcome-display">
-                 <span id="typewriter"> welcome to my website.!!</span>
-                </div></div>
+              <!----> <div class="welcome-display">
+                 <span id="typewriter" class="heart"> <i class="fa fa-heart" aria-hidden="true"></i> </span>
+                 
+                </div> 
+              </div>
               </div>
             </div>
           </div>
@@ -621,6 +690,11 @@
   <div id="Newfolder" style="display: flex; align-items: center; gap: 2px;">
     <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
     <span>Newfolder</span>
+  </div>
+
+  <div id="Newfolder" style="display: flex; align-items: center; gap: 2px;">
+    <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
+    <span>Dontsee</span>
   </div>
 </div>
 
@@ -680,7 +754,12 @@
     <button id="closeHomeTab2">✖</button>
   </div>
   <div class="tab-content">
-    
+    <ul class="Education-ul">
+  <div id="shivateja"><li><span  style="cursor: pointer;">Aboutme</span></li></div>
+  <div id="info" ><li><span style="cursor: pointer;">info</span></li></div>
+  <div id="Hobbies" ><li><span style="cursor: pointer;">Hobbies</span></li></div>
+  <div id="contactme" ><li><span style="cursor: pointer;">@contact_me</span></li></div>
+</ul>
   </div>
 </div>
 <div id="mypicTab" class="tab-window4" style="display: none;">
@@ -703,7 +782,28 @@
   </div>
 </div>
 
+<div id="shivatejaTab" class="tab-window6" style="display: none;">
+  <div class="tab-header">
+    <span><i class="fa fa-anchor" aria-hidden="true"></i>-Aboutme</span>
+    <button id="closeHomeTab6">✖</button>
+  </div>
+  <div class="tab-content" style="align-items: center;">
+    <p>blabalablabalblabla</p>
+  </div>
 </div>
+
+<div id="infoTab" class="tab-window7" style="display: none;">
+  <div class="tab-header">
+    <span><i class="fa fa-anchor" aria-hidden="true"></i>-Aboutme</span>
+    <button id="closeHomeTab7">✖</button>
+  </div>
+  <div class="tab-content" style="align-items: center;">
+    <p>blabalablabalblabla</p>
+  </div>
+</div>
+
+</div>
+
   
 
   <script>
@@ -731,6 +831,10 @@
     const mypicTab = document.getElementById('mypicTab');
     const Mrbob = document.getElementById('Mrbob');
     const MrbobTab = document.getElementById('MrbobTab');
+    const shivateja = document.getElementById('shivateja');
+    const shivatejaTab = document.getElementById('shivatejaTab');
+    const info = document.getElementById('info');
+    const infoTab = document.getElementById('infoTab');
 
     button.addEventListener('click', () => {
       button.style.display = 'none';
@@ -838,6 +942,36 @@
       });
     });
 
+    shivateja.addEventListener('click', () => {
+      shivatejaTab.style.display = 'block';
+
+      anime({
+        targets: shivatejaTab,
+        scale: 1.1,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          shivatejaTab.style.display = 'block';
+         
+        }
+      });
+    });
+
+    info.addEventListener('click', () => {
+      infoTab.style.display = 'block';
+
+      anime({
+        targets: infoTab,
+        scale: 1.1,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          infoTab.style.display = 'block';
+         
+        }
+      });
+    });
+
     closeHomeTab.addEventListener('click', () => {
       homeTab.style.display = 'block';
 
@@ -927,6 +1061,37 @@
         }
       });
     });
+
+    closeHomeTab6.addEventListener('click', () => {
+      shivatejaTab.style.display = 'block';
+
+      anime({
+        targets: shivatejaTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          shivatejaTab.style.display = 'none';
+         
+        }
+      });
+    });
+
+    closeHomeTab7.addEventListener('click', () => {
+      infoTab.style.display = 'block';
+
+      anime({
+        targets: infoTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          infoTab.style.display = 'none';
+         
+        }
+      });
+    });
+
 
     function updateTime() {
       const timeEl = document.getElementById('time');
@@ -1049,7 +1214,9 @@
     'skillsTab',
     'AboutmeTab',
     'mypicTab',
-    'MrbobTab'
+    'MrbobTab',
+    'shivatejaTab',
+    'infoTab'
   ];
     tabs.forEach(makeDraggable);
   </script>
