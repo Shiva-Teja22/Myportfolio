@@ -96,10 +96,12 @@
       text-shadow: 0 0 5px #0f0;
       cursor: pointer;
       transition: transform 0.1s ease, box-shadow 0.2s ease;
+      margin-top: 7px;
+      padding-top: 2px;
     }
 
     .screen button:active {
-      transform: scale(0.95);
+      transform: scale(0.951);
       box-shadow: 0 0 5px #0f0;
       background-color: #0f0;
       color: #000;
@@ -286,6 +288,37 @@
   font-family: 'Courier New', Courier, monospace
 }
 
+
+
+.welcome-display button {
+      all: unset;
+      color: rgb(30, 255, 0);
+      font-family: monospace;
+      position: absolute;
+      background-color: #6f6f6f;
+      box-shadow: 0 0 5px #0f0;
+  font-size: 12px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 1px;
+  padding-bottom: 2px;
+  border-radius: 1000px;
+  top: 47px;
+  z-index: 15;
+  object-fit: cover;
+  overflow: hidden;
+      cursor: pointer;
+      transition: transform 2s ease, box-shadow 0.7s ease;
+      font-size: 12px;
+    }
+
+    .welcome-display button:active {
+      transform: scale(0.55);
+      box-shadow: 0 0 5px #0f0;
+      background-color: #0f0;
+      color: #000;
+    }
+
 .welcome-display {
   position: relative; /* So tooltip positioning works */
 }
@@ -317,8 +350,8 @@
 
   .tab-window1 {
   position: absolute;
-  top: 42vh; 
-  left: 72vw;
+  top: 49vh; 
+  left: 74vw;
   transform: translateX(-50%);
   width: 250px;
   height: 200px;
@@ -398,7 +431,7 @@
 
 .tab-window6 {
   position: absolute;
-  top: 24vh; 
+  top: 8vh; 
   left: 46vw;
   transform: translateX(-50%);
   width: 190px;
@@ -447,7 +480,7 @@
 .tab-window8 {
   position: absolute;
   top: 58vh; 
-  left: 33vw;
+  left: 30vw;
   transform: translateX(-50%);
   width: 190px;
   height: 180px;
@@ -462,8 +495,8 @@
 
 .tab-window9 {
   position: absolute;
-  top: 50vh; 
-  left: 50vw;
+  top: 28vh; 
+  left: 44vw;
   transform: translateX(-50%);
   width: 190px;
   height: 180px;
@@ -657,6 +690,7 @@
             <div class="screen">
               <button id="bootBtn">click_here</button>
               <div id="loadingText" style="display: none; color:rgb(49, 255, 49);">Loading ShivaOS...</div>
+              <div id="RebootingText" style="display: none; color:rgb(49, 255, 49);">Rebooting ShivaOS...</div>
               <div class="desktop" id="desktop">
                 <div class="topbar">
                   <div class="left"><i class="ri-computer-fill"></i> Shiva_OS</div>
@@ -685,7 +719,7 @@
                 </div>
               <!----> <div class="welcome-display">
                  <span id="typewriter" class="heart"> <i class="fa fa-heart" aria-hidden="true"></i> </span>
-                 
+                 <button id="Reset" >Reset</button>
                 </div> 
               </div>
               </div>
@@ -739,11 +773,6 @@
     <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
     <span>Newfolder</span>
   </div>
-
-  <div id="Newfolder" style="display: flex; align-items: center; gap: 2px;">
-    <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
-    <span>Dontsee</span>
-  </div>
 </div>
 
 
@@ -786,11 +815,11 @@
   </div>
   <div class="tab-content">
   
-<ul class="hacker-ul">
+<ul class="hacker-ul" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
   <li><span>></span>  UI/UX</li>
-  <li><span>></span>  Web dev [ front-end & Backend ]</li>
+  <li><span>></span>  Web dev <br>[front-end & Back-end]</li>
   <li><span>></span>  App Design</li>
-  <li><span>></span>  Others [ Github, Vim, and Figma ]</li>
+  <li><span>></span>  Others<br>[Github, Vim, and Figma]</li>
 </ul>
 
   </div>
@@ -832,11 +861,11 @@
 
 <div id="shivatejaTab" class="tab-window6" style="display: none;">
   <div class="tab-header">
-    <span><i class="fa fa-anchor" aria-hidden="true"></i>-Aboutme</span>
+    <span><i class="fa fa-anchor" aria-hidden="true"></i>-me</span>
     <button id="closeHomeTab6">✖</button>
   </div>
   <div class="tab-content" style="align-items: center;">
-    <p>blabalablabalblabla</p>
+    <img src="" alt="">
   </div>
 </div>
 
@@ -879,6 +908,7 @@
     const scaleContainer = document.querySelector('.scale-container');
     const desktop = document.getElementById('desktop');
     const loadingText = document.getElementById('loadingText');
+    const RebootingText = document.getElementById('RebootingText');
     const home = document.getElementById('home');
     const skills = document.getElementById('skills');
     const Aboutme = document.getElementById('Aboutme');
@@ -908,6 +938,8 @@
     const contactme = document.getElementById('contactme');
     const contactmeTab = document.getElementById('contactmeTab');
 
+    const Reset = document.getElementById('Reset');
+
     button.addEventListener('click', () => {
       button.style.display = 'none';
       loadingText.style.display = 'block';
@@ -915,11 +947,27 @@
       anime({
         targets: scaleContainer,
         scale: 1.8,
-        duration: 1200,
+        duration: 1100,
         easing: 'easeInOutQuad',
         complete: () => {
           desktop.style.display = 'block';
           loadingText.style.display = 'none';
+        }
+      });
+    });
+
+    Reset.addEventListener('click', () => {
+      desktop.style.display = 'none';
+      RebootingText.style.display = 'block';
+
+      anime({
+        targets: scaleContainer,
+        scale: .88,
+        duration: 1100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          button.style.display = 'block';
+          RebootingText.style.display = 'none';
         }
       });
     });
