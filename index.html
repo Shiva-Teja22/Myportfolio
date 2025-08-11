@@ -407,7 +407,7 @@
   border: 2px solid #555;
   border-radius: 6px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-  z-index: 12;
+  z-index: 10;
   font-family: monospace;
   color: #fff;
 }
@@ -423,7 +423,39 @@
   border: 2px solid #555;
   border-radius: 6px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 11;
+  font-family: monospace;
+  color: #fff;
+}
+
+.tab-window7 {
+  position: absolute;
+  top: 22vh; 
+  left: 36vw;
+  transform: translateX(-50%);
+  width: 190px;
+  height: 180px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
   z-index: 12;
+  font-family: monospace;
+  color: #fff;
+}
+
+.tab-window8 {
+  position: absolute;
+  top: 58vh; 
+  left: 33vw;
+  transform: translateX(-50%);
+  width: 190px;
+  height: 180px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 10;
   font-family: monospace;
   color: #fff;
 }
@@ -794,7 +826,7 @@
 
 <div id="infoTab" class="tab-window7" style="display: none;">
   <div class="tab-header">
-    <span><i class="fa fa-anchor" aria-hidden="true"></i>-Aboutme</span>
+    <span><i class="fa fa-info" aria-hidden="true"></i>-info</span>
     <button id="closeHomeTab7">✖</button>
   </div>
   <div class="tab-content" style="align-items: center;">
@@ -802,7 +834,17 @@
   </div>
 </div>
 
+<div id="hobbiesTab" class="tab-window8" style="display: none;">
+  <div class="tab-header">
+    <span><i class="fa fa-anchor" aria-hidden="true"></i>-Hobbies</span>
+    <button id="closeHomeTab8">✖</button>
+  </div>
+  <div class="tab-content" style="align-items: center;">
+    <p>blabalablabalblabla</p>
+  </div>
 </div>
+
+</div> </div>
 
   
 
@@ -835,6 +877,8 @@
     const shivatejaTab = document.getElementById('shivatejaTab');
     const info = document.getElementById('info');
     const infoTab = document.getElementById('infoTab');
+    const Hobbies = document.getElementById('Hobbies');
+    const hobbiesTab = document.getElementById('hobbiesTab');
 
     button.addEventListener('click', () => {
       button.style.display = 'none';
@@ -972,6 +1016,21 @@
       });
     });
 
+    Hobbies.addEventListener('click', () => {
+      hobbiesTab.style.display = 'block';
+
+      anime({
+        targets: hobbiesTab,
+        scale: 1.1,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          hobbiesTab.style.display = 'block';
+         
+        }
+      });
+    });
+
     closeHomeTab.addEventListener('click', () => {
       homeTab.style.display = 'block';
 
@@ -1087,6 +1146,21 @@
         easing: 'easeInOutQuad',
         complete: () => {
           infoTab.style.display = 'none';
+         
+        }
+      });
+    });
+
+    closeHomeTab8.addEventListener('click', () => {
+      hobbiesTab.style.display = 'block';
+
+      anime({
+        targets: hobbiesTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          hobbiesTab.style.display = 'none';
          
         }
       });
@@ -1216,7 +1290,8 @@
     'mypicTab',
     'MrbobTab',
     'shivatejaTab',
-    'infoTab'
+    'infoTab',
+    'hobbiesTab'
   ];
     tabs.forEach(makeDraggable);
   </script>
