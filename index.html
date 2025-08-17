@@ -65,7 +65,7 @@
       border: 3px solid #555;
       border-radius: 10px;
       padding: 16px;
-      width: 240px;
+      width: 270px;
     }
 
     .screen-container {
@@ -91,19 +91,25 @@
 
     .screen button {
       all: unset;
-      color: #0f0;
+      color: rgb(11, 11, 11);
       font-family: monospace;
       text-shadow: 0 0 5px #0f0;
+      box-shadow: 0 0 10px #0f0;
       cursor: pointer;
       transition: transform 0.1s ease, box-shadow 0.2s ease;
+      background: linear-gradient(to bottom, #8ff985, #156801);
       margin-top: 7px;
       padding-top: 2px;
+      padding-left: 7px;
+      padding-right: 7px;
+      padding-bottom: 2px;
+      border-radius: 100px;
     }
 
     .screen button:active {
       transform: scale(0.951);
       box-shadow: 0 0 5px #0f0;
-      background-color: #0f0;
+      background: linear-gradient(to bottom, #f9f9f9, #198900);
       color: #000;
     }
 
@@ -292,30 +298,29 @@
 
 .welcome-display button {
       all: unset;
-      color: rgb(30, 255, 0);
+      color: rgb(0, 0, 0);
       font-family: monospace;
       position: absolute;
-      background-color: #6f6f6f;
+      background: linear-gradient(to bottom, #8ff985, #156801);
       box-shadow: 0 0 5px #0f0;
-  font-size: 12px;
-  padding-left: 7px;
-  padding-right: 7px;
-  padding-top: 1px;
-  padding-bottom: 2px;
-  border-radius: 1000px;
-  top: 47px;
-  z-index: 15;
-  object-fit: cover;
-  overflow: hidden;
+      font-size: 7px;
+      padding-left: 7px;
+      padding-right: 7px;
+      padding-top: .5px;
+      padding-bottom: 1px;
+      border-radius: 1000px;
+      top: 47px;
+      z-index: 15;
+      object-fit: cover;
+      overflow: hidden;
       cursor: pointer;
-      transition: transform 2s ease, box-shadow 0.7s ease;
-      font-size: 12px;
+      transition: transform 0.1s ease, box-shadow 0.2s ease;
     }
 
     .welcome-display button:active {
-      transform: scale(0.55);
+      transform: scale(0.951);
       box-shadow: 0 0 5px #0f0;
-      background-color: #0f0;
+      background: linear-gradient(to bottom, #ffffff, #166f00);
       color: #000;
     }
 
@@ -351,9 +356,9 @@
   .tab-window1 {
   position: absolute;
   top: 49vh; 
-  left: 74vw;
+  left: 64vw;
   transform: translateX(-50%);
-  width: 250px;
+  width: 290px;
   height: 200px;
   background: #1e1e1e;
   border: 2px solid #555;
@@ -362,13 +367,44 @@
   z-index: 20;
   font-family: monospace;
   color: #fff;
+  display: flex;
+  flex-direction: column; /* so header & content can stack */
+}
+
+#skillss {
+  flex: 1; /* take remaining space */
+  width: 100%;
+  height: 160px;
+  background: #161616; /* slight contrast from parent */
+  border-radius: 4px;
+  padding: 8px;
+  overflow-y: auto;  
+  overflow-x: hidden; 
+
+  /* custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #44ef88 #222;
+}
+
+#skillss::-webkit-scrollbar {
+  width: 6px;
+}
+
+#skillss::-webkit-scrollbar-track {
+  background: #222;
+  border-radius: 6px;
+}
+
+#skillss::-webkit-scrollbar-thumb {
+  background: #44ef88;
+  border-radius: 6px;
 }
 
 
  .tab-window2 {
   position: absolute;
   top: 15vh; 
-  left: 11vw;
+  left: 9vw;
   transform: translateX(-50%);
   width: 220px;
   height: 155px;
@@ -399,8 +435,8 @@
 
 .tab-window4 {
   position: absolute;
-  top: 20vh; 
-  left: 72vw;
+  top: 18vh; 
+  left: 70vw;
   transform: translateX(-50%);
   width: 187px;
   height: 180px;
@@ -434,8 +470,8 @@
   top: 8vh; 
   left: 46vw;
   transform: translateX(-50%);
-  width: 190px;
-  height: 180px;
+  width: 490px;
+  height: 280px;
   background: #1e1e1e;
   border: 2px solid #555;
   border-radius: 6px;
@@ -445,50 +481,85 @@
   color: #fff;
 }
 
-.tab-window7 {
-  position: absolute;
-  top: 22vh; 
-  left: 56vw;
-  transform: translateX(-50%);
-  width: 190px;
-  height: 180px;
+#abme{
+   position: absolute;
+  height: 280px;
   background: #1e1e1e;
-  border: 2px solid #555;
   border-radius: 6px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-  z-index: 11;
+  z-index: 10;
   font-family: monospace;
   color: #fff;
+  overflow-y: auto;  
+  overflow-x: hidden;
+  scrollbar-color: #44ef88 #222; 
 }
+
+#abme::-webkit-scrollbar {
+  width: 6px;
+}
+
+
+ h3 {
+    font-size: 1.6rem;
+    color: #4ade80; /* green accent */
+    font-family: monospace;
+    margin-bottom: 10px;
+    text-shadow: 0 0 4px rgba(74, 222, 128, 0.6);
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ddd;
+    font-family: "Courier New", monospace;
+    margin-bottom: 12px;
+  }
+
+  strong {
+    color: #60a5fa; /* blue highlight */
+  }
+
+  em {
+    color: #fbbf24; /* amber highlight */
+    font-style: normal;
+    font-weight: bold;
+  }
+
 
 .tab-window7 {
   position: absolute;
   top: 22vh; 
-  left: 36vw;
+  left: 25vw;
   transform: translateX(-50%);
-  width: 190px;
+  width: 370px;
   height: 180px;
   background: #1e1e1e;
   border: 2px solid #555;
   border-radius: 6px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
   z-index: 12;
-  font-family: monospace;
+  font-family:  monospace;
   color: #fff;
+}
+
+.info-ul li{
+  padding-bottom: 2px;
+  margin-bottom: 1.5px;
 }
 
 .tab-window8 {
   position: absolute;
-  top: 58vh; 
+  top: 54vh; 
   left: 30vw;
   transform: translateX(-50%);
-  width: 190px;
-  height: 180px;
+  width: 370px;
+  height: 230px;
   background: #1e1e1e;
   border: 2px solid #555;
   border-radius: 6px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-  z-index: 10;
+  z-index: 9;
   font-family: monospace;
   color: #fff;
 }
@@ -498,7 +569,7 @@
   top: 28vh; 
   left: 44vw;
   transform: translateX(-50%);
-  width: 190px;
+  width: 320px;
   height: 180px;
   background: #1e1e1e;
   border: 2px solid #555;
@@ -508,6 +579,40 @@
   font-family: monospace;
   color: #fff;
 }
+
+.tab-window10 {
+   position: absolute;
+  top: 28vh; /* push it above the laptop screen */
+  left: 68vw;
+  transform: translateX(-50%);
+  width: 170px;
+  height: 130px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 15;
+  font-family: monospace;
+  color: #fff;
+}
+
+.tab-window11 {
+  position: absolute;
+  top: 28vh; 
+  left: 44vw;
+  transform: translateX(-50%);
+  width: 220px;
+  height: 180px;
+  background: #1e1e1e;
+  border: 2px solid #555;
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+  z-index: 100;
+  font-family: monospace;
+  color: #fff;
+}
+
+
 
 .tab-header {
   background: #333;
@@ -574,33 +679,16 @@
       padding-left: 5px;
     }
 
-    #skillsTab .tab-content ul {
-      font-family: fantasy;
-  color: #52c4f9;
-  font-size: 10px;
-  font-weight: 10;
-  font-size: medium;
-  text-decoration: wavy;
-}
-
-#skillsTab .tab-content ul li {
-  margin-bottom: 10px;
-  font-size: 10px;
-  font-weight: 10;
-  font-size: medium;
-  text-decoration: wavy;
-  position: relative;
-  animation: hackerGlitch 1.5s infinite alternate ease-in-out;
-}
 
 
 
-.hacker-ul {
+
+.skills-ul {
   list-style: none;
   padding: 0;
 }
 
-.hacker-ul li .Education-ul li{
+.skills-ul li .Education-ul li{
 
   font-size: 15px;
   position: relative;
@@ -662,6 +750,93 @@
 
 
 
+.contact-card h2 {
+  font-family: monospace;
+  font-size: 18px;
+  margin-bottom: 12px;
+  color: #0f0;
+  border-bottom: 1px solid #0f0;
+  padding-bottom: 5px;
+}
+
+.contact-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-card li {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.contact-card strong {
+  color: #0f0;
+}
+
+.contact-card a {
+  color: #4af;
+  text-decoration: none;
+}
+
+.contact-card a:hover {
+  text-decoration: underline;
+}
+
+/*Games*/
+.tab-window-game {
+  position: absolute;
+  top: 18vh; 
+  left: 34vw;
+  transform: translateX(-50%);
+  width: 410px;
+  height: 450px;
+  background: #121212; /* darker for more retro feel */
+  border: 2px solid #44ef88; /* match terminal green */
+  border-radius: 6px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+  z-index: 100;
+  font-family: monospace;
+  color: #44ef88; /* consistent green text */
+  overflow: hidden;
+}
+
+.tab-window-game p{
+  margin-left: 10px;
+}
+
+/* Board fits inside neatly */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  gap: 3px;
+  margin-top: 15px;
+}
+
+/* Game cells look like retro green terminals */
+.cell {
+  background: #181818; /* darker gray to blend with window */
+  border: 1px solid #44ef88; /* thin neon green border */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-family: monospace;
+  color: #44ef88; /* use neon green for X/O */
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s, color 0.2s;
+}
+
+.cell:hover {
+  background: #222; /* subtle hover */
+  color: #00ff99;   /* brighter neon on hover */
+}
+
+
+
+
   </style>
 </head>
 <body>
@@ -706,14 +881,15 @@
                     <i class="ri-line-chart-fill"></i>
                     <span>skills</span>
                   </div>
+                  <div id="Education" class="icon" style="display: flex; flex-direction: column; align-items: center;">
+                      <i class="ri-graduation-cap-fill"></i>
+                      <span>Education</span>
+                    </div>
                   <div id="Aboutme" class="icon" style="display: flex; flex-direction: column; align-items: center;">
                     <i class="ri-information-2-line"></i>
                     <span>Aboutme</span>
                   </div>
-                    <div id="Education" class="icon" style="display: flex; flex-direction: column; align-items: center;">
-                      <i class="ri-graduation-cap-fill"></i>
-                      <span>Education</span>
-                    </div>
+                    
                   
 
                 </div>
@@ -759,17 +935,17 @@
   <div  class="tab-content">
   </div>
   <div id="homeTab-content" style="display: flex; flex-direction: column; gap: 3px;">
-  <div id="mypic" style="display: flex; align-items: center; gap: 5px;">
+  <div id="mypic" style="display: flex; align-items: center; gap: 5px;  padding-bottom: 5px;">
     <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
     <span>mypic</span>
   </div>
   
-  <div id="Mrbob" style="display: flex; align-items: center; gap: 2px;">
+  <div id="Mrbob" style="display: flex; align-items: center; gap: 2px; padding-bottom: 5px;">
     <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
     <span>Mr.bob</span>
   </div>
   
-  <div id="Newfolder" style="display: flex; align-items: center; gap: 2px;">
+  <div id="Newfolder" style="display: flex; align-items: center; gap: 2px; padding-bottom: 5px;">
     <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
     <span>Newfolder</span>
   </div>
@@ -813,14 +989,33 @@
     <span><i class="ri-line-chart-fill"></i>SkillsTab</span>
     <button id="closeHomeTab1">✖</button>
   </div>
-  <div class="tab-content">
+  <div class="tab-content" id="skillss">
   
-<ul class="hacker-ul" style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
-  <li><span>></span>  UI/UX</li>
-  <li><span>></span>  Web dev <br>[front-end & Back-end]</li>
-  <li><span>></span>  App Design</li>
-  <li><span>></span>  Others<br>[Github, Vim, and Figma]</li>
+<ul class="skills-ul" style="list-style: none; padding: 0; margin: 0; font-family: 'Trebuchet MS', Arial, sans-serif; font-size: 15px; color: #eee;">
+  <li style="margin: 10px 0; padding: 8px 12px; background: rgba(68,239,136,0.08); border-left: 3px solid #44ef88; border-radius: 4px;">
+    <span style="color: #44ef88; margin-right: 6px;">›</span> <strong>UI/UX</strong>
+  </li>
+
+  <li style="margin: 10px 0; padding: 8px 12px; background: rgba(68,239,136,0.08); border-left: 3px solid #44ef88; border-radius: 4px;">
+    <span style="color: #44ef88; margin-right: 6px;">›</span> <strong>Web Dev</strong> <br>
+    <small style="color: #bbb;">[Front-end & Back-end]</small>
+  </li>
+
+  <li style="margin: 10px 0; padding: 8px 12px; background: rgba(68,239,136,0.08); border-left: 3px solid #44ef88; border-radius: 4px;">
+    <span style="color: #44ef88; margin-right: 6px;">›</span> <strong>App Design</strong>
+  </li>
+
+  <li style="margin: 10px 0; padding: 8px 12px; background: rgba(68,239,136,0.08); border-left: 3px solid #44ef88; border-radius: 4px;">
+    <span style="color: #44ef88; margin-right: 6px;">›</span> <strong>Language Known</strong> <br>
+    <small style="color: #bbb;">[JavaScript, Java, Python, and C++]</small>
+  </li>
+
+  <li style="margin: 10px 0; padding: 8px 12px; background: rgba(68,239,136,0.08); border-left: 3px solid #44ef88; border-radius: 4px;">
+    <span style="color: #44ef88; margin-right: 6px;">›</span> <strong>Others</strong> <br>
+    <small style="color: #bbb;">[Github, Vim, and Figma]</small>
+  </li>
 </ul>
+
 
   </div>
 </div>
@@ -859,23 +1054,46 @@
   </div>
 </div>
 
+
+
 <div id="shivatejaTab" class="tab-window6" style="display: none;">
   <div class="tab-header">
-    <span><i class="fa fa-anchor" aria-hidden="true"></i>-me</span>
+    <span><i class="fa fa-anchor" aria-hidden="true"></i> bout-me</span>
     <button id="closeHomeTab6">✖</button>
   </div>
-  <div class="tab-content" style="align-items: center;">
-    <img src="" alt="">
+  <div class="tab-content" id="abme" style="align-items: center;">
+    <h3>Hi, it's me Shiva Teja..!</h3>
+<br>
+<p>
+  I'm a Computer Science and Information Technology (CS & IT) student, currently pursuing my 3rd year at MVSR Engineering College, Hyderabad, India.
+</p>
+<p>
+  I love coding and enjoy solving problems that challenge my logic and creativity. 
+  My interests mainly revolve around <strong>web development</strong>, where I experiment with both front-end designs and back-end functionality. 
+</p>
+<p>I’m passionate about building projects that are practical and fun & creating unique
+  I believe in <em>learning by doing</em>, and I constantly push myself to explore new technologies and improve my skills.
+</p>
+
+
   </div>
 </div>
 
 <div id="infoTab" class="tab-window7" style="display: none;">
   <div class="tab-header">
-    <span><i class="fa fa-info" aria-hidden="true"></i>-info</span>
+    <span><i class="fa fa-info" aria-hidden="true"></i> Personal-info</span>
     <button id="closeHomeTab7">✖</button>
   </div>
-  <div class="tab-content" style="align-items: center;">
-    <p>blabalablabalblabla</p>
+  <div class="tab-content" style="align-items: center; font-size: 15px;">
+    <ul class="info-ul" style="list-style: none;">
+    <li><strong>Name:</strong> <span>Shiva Teja Pullala</span></li>
+    <li><strong>E-mail:</strong> <span>shivatejathedeveloper@gmail.com</span></li>
+    <li><strong>Github:</strong> Shiva-Teja22 |<a target="_blank" href="https://github.com/Shiva-Teja22">Link</a>|
+    </li>
+    <li><strong>LinkedIn:</strong> Shiva Teja Pullala |<a target="_blank" href="https://www.linkedin.com/in/shiva-teja-746a00353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Link</a>|
+    </li>
+    <li><strong>City:</strong> <span>Hyderabad</span></li>
+  </ul>
   </div>
 </div>
 
@@ -885,7 +1103,33 @@
     <button id="closeHomeTab8">✖</button>
   </div>
   <div class="tab-content" style="align-items: center;">
-    <p>blabalablabalblabla</p>
+    <ul style="font-size: 18px; font-family: 'Trebuchet MS', Arial, sans-serif; list-style: none; padding: 0; color: #fff;">
+  <li style="margin-bottom: 12px; display: flex; align-items: center;">
+    <span style="font-size: 22px; margin-right: 8px;">📚</span>
+    <span style="background: linear-gradient(to right, #a8ff78, #78ffd6); padding: 6px 12px; border-radius: 12px; font-weight: bold; color:#111;">
+      Reading books — especially philosophy
+    </span>
+  </li>
+
+  <li style="margin-bottom: 12px; display: flex; align-items: center;">
+    <span style="font-size: 22px; margin-right: 8px;">🎶</span>
+    <span style="background: linear-gradient(to right, #fbc2eb, #a6c1ee); padding: 6px 12px; border-radius: 12px; font-weight: bold; color:#111;">
+      Music (Production)
+    </span>
+    <a target="_blank" href="https://www.instagram.com/melo_the_sound_engineer/" style="margin-left:10px; text-decoration:none; color:#fffa91; font-size:14px;">
+      [Check it out 🎧]
+    </a>
+  </li>
+
+  <li style="margin-bottom: 12px; display: flex; align-items: center;">
+    <span style="font-size: 22px; margin-right: 8px;">💻</span>
+    <span style="background: linear-gradient(to right, #ff9a9e, #fad0c4); padding: 6px 12px; border-radius: 12px; font-weight: bold; color:#111;">
+      Coding & building cool projects
+    </span>
+  </li>
+</ul>
+
+
   </div>
 </div>
 
@@ -895,8 +1139,79 @@
     <button id="closeHomeTab9">✖</button>
   </div>
   <div class="tab-content" style="align-items: center;">
-    <p>blabalablabalblabla</p>
+    <div class="contact-card">
+  <h2>Contact Info</h2>
+  <ul>
+    <li><strong>E-mail:</strong> <span>shivatejathedeveloper@gmail.com</span></li>
+    <li><strong>Github:</strong> Shiva-Teja22 |<a target="_blank" href="https://github.com/Shiva-Teja22">Link</a>|
+    </li>
+    <li><strong>LinkedIn:</strong> Shiva Teja Pullala |<a target="_blank" href="https://www.linkedin.com/in/shiva-teja-746a00353?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">Link</a>|
+    </li>
+  </ul>
+</div>
+    
   </div>
+</div>
+
+<div id="NewfolderTab" class="tab-window10" style="display: none;">
+  <div class="tab-header">
+    <span><i class="fas fa-cat"></i>-Its Mr. Bob</span>
+    <button id="closeHomeTab10">✖</button>
+  </div>
+  <div class="tab-content" style="align-items: center; display: flex; flex-direction: row; ">
+    <div id="pic" style="display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 5px;">
+    <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
+    <span>Pics</span>
+  </div>
+  
+  <div id="games" style="display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 5px;">
+    <i class="fas fa-folder" style="color: rgb(0, 195, 255); font-size: 24px;"></i>
+    <span>Games</span>
+  </div>
+  
+  </div>
+  </div>
+
+  <div id="GamesTab" class="tab-window11" style="display: none;">
+  <div class="tab-header">
+    <span><i class="fas fa-gamepad"></i> Mini Games</span>
+    <button id="closeHomeTab11">✖</button>
+  </div>
+  <div class="tab-content" style="padding: 10px; display: flex; flex-direction: column; gap: 10px;">
+    <button id="ticTacToe" onclick="openGame('ticTacToe')">🎮 Tic Tac Toe</button>
+    <button id="Snake"> coming soon</button>
+    <button> coming soon</button>
+  </div>
+</div>
+
+<div id="ticTacToeWindow" class="tab-window-game" style="display: none;">
+  <div class="tab-header">
+    <span>🎮 Tic Tac Toe</span>
+    <button id="closetictactoe" onclick="closeGame('ticTacToe')">✖</button>
+  </div>
+  <div class="tab-content" style="display: flex; justify-content: center; align-items: center; height: 90%;">
+    <div id="ticTacToeBoard" class="board"></div>
+    <p id="ticTacToeStatus" style="color:#44ef88; font-family:monospace;">Player X’s turn</p>
+    <button onclick="resetTicTacToe()" style="padding:5px 10px; background:#111; border:1px solid #44ef88; color:#44ef88; border-radius:4px; cursor:pointer;">Restart</button>
+  </div>
+</div>
+
+<div id="snakeGame" class="tab-window-game" style="display:none;">
+  <div class="tab-header">
+    <span>🐍 Snake Game</span>
+    <button id="closesnakeGame" onclick="closeSnake('Snake')">✖</button>
+  </div>
+
+  <p id="snake-score">Score: 0</p>
+  <div id="snake-board"></div>
+</div>
+
+
+</div>
+
+
+
+
 </div>
 
 </div> </div>
@@ -930,6 +1245,8 @@
     const Mrbob = document.getElementById('Mrbob');
     const MrbobTab = document.getElementById('MrbobTab');
     const shivateja = document.getElementById('shivateja');
+    const Newfolder = document.getElementById('Newfolder');
+    const NewfolderTab = document.getElementById('NewfolderTab');
     const shivatejaTab = document.getElementById('shivatejaTab');
     const info = document.getElementById('info');
     const infoTab = document.getElementById('infoTab');
@@ -937,6 +1254,13 @@
     const hobbiesTab = document.getElementById('hobbiesTab');
     const contactme = document.getElementById('contactme');
     const contactmeTab = document.getElementById('contactmeTab');
+    
+    const GamesTab = document.getElementById('GamesTab');
+    const games = document.getElementById('games');
+    const ticTacToeWindow = document.getElementById('ticTacToeWindow');
+    const ticTacToe = document.getElementById('ticTacToe');
+    const snakeGame = document.getElementById('snakeGame');
+    const Snake = document.getElementById('Snake');
 
     const Reset = document.getElementById('Reset');
 
@@ -1062,6 +1386,21 @@
       });
     });
 
+    Newfolder.addEventListener('click', () => {
+      NewfolderTab.style.display = 'block';
+
+      anime({
+        targets: NewfolderTab,
+        scale: 1.1,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          NewfolderTab.style.display = 'block';
+         
+        }
+      });
+    });
+
     shivateja.addEventListener('click', () => {
       shivatejaTab.style.display = 'block';
 
@@ -1117,6 +1456,51 @@
         easing: 'easeInOutQuad',
         complete: () => {
           contactmeTab.style.display = 'block';
+         
+        }
+      });
+    });
+
+    ticTacToe.addEventListener('click', () => {
+      ticTacToeWindow.style.display = 'block';
+
+      anime({
+        targets: ticTacToeWindow,
+        scale: 1.1,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          ticTacToeWindow.style.display = 'block';
+         
+        }
+      });
+    });
+
+    games.addEventListener('click', () => {
+      GamesTab.style.display = 'block';
+
+      anime({
+        targets: GamesTab,
+        scale: 1.1,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          GamesTab.style.display = 'block';
+         
+        }
+      });
+    });
+
+    Snake.addEventListener('click', () => {
+      snakeGame.style.display = 'block';
+
+      anime({
+        targets: snakeGame,
+        scale: 1.1,
+        duration: 100,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          snakeGame.style.display = 'block';
          
         }
       });
@@ -1272,6 +1656,67 @@
       });
     });
 
+    closeHomeTab10.addEventListener('click', () => {
+      NewfolderTab.style.display = 'block';
+
+      anime({
+        targets: NewfolderTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          NewfolderTab.style.display = 'none';
+         
+        }
+      });
+    });
+
+    closeHomeTab11.addEventListener('click', () => {
+      GamesTab.style.display = 'block';
+
+      anime({
+        targets: GamesTab,
+        scale: 0.2,
+        duration: 150,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          GamesTab.style.display = 'none';
+         
+        }
+      });
+    });
+
+    closetictactoe.addEventListener('click', () => {
+      ticTacToeWindow.style.display = 'block';
+
+      anime({
+        targets: ticTacToeWindow,
+        scale: 0.3,
+        duration: 250,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          ticTacToeWindow.style.display = 'none';
+         
+        }
+      });
+    });
+
+    closesnakeGame.addEventListener('click', () => {
+      snakeGame.style.display = 'block';
+
+      anime({
+        targets: snakeGame,
+        scale: 0.3,
+        duration: 250,
+        easing: 'easeInOutQuad',
+        complete: () => {
+          snakeGame.style.display = 'none';
+         
+        }
+      });
+    });
+
+
 
     function updateTime() {
       const timeEl = document.getElementById('time');
@@ -1398,10 +1843,85 @@
     'shivatejaTab',
     'infoTab',
     'hobbiesTab',
-    'contactmeTab'
+    'contactmeTab',
+    'NewfolderTab',
+    'ticTacToeWindow',
+    'GamesTab',
+    'snakeGame'
   ];
     tabs.forEach(makeDraggable);
+
+    const boardEl = document.getElementById("ticTacToeBoard");
+const statusEl = document.getElementById("ticTacToeStatus");
+let board = Array(9).fill(null);
+let currentPlayer = "X";
+let gameOver = false;
+
+// Create cells
+for (let i = 0; i < 9; i++) {
+  const cell = document.createElement("div");
+  cell.classList.add("cell");
+  cell.dataset.index = i;
+  cell.addEventListener("click", handleClick);
+  boardEl.appendChild(cell);
+}
+
+function handleClick(e) {
+  const idx = e.target.dataset.index;
+  if (board[idx] || gameOver) return;
+
+  board[idx] = currentPlayer;
+  e.target.textContent = currentPlayer;
+  e.target.style.color = currentPlayer === "X" ? "#ff4757" : "#1e90ff";
+
+  const winner = checkWinner();
+  if (winner) {
+    gameOver = true;
+    statusEl.textContent = winner === "draw" ? "It’s a draw!" : `${winner} wins! 🎉`;
+  } else {
+    currentPlayer = currentPlayer === "X" ? "O" : "X";
+    statusEl.textContent = `Player ${currentPlayer}’s turn`;
+  }
+}
+
+function checkWinner() {
+  const winPatterns = [
+    [0,1,2],[3,4,5],[6,7,8], // rows
+    [0,3,6],[1,4,7],[2,5,8], // cols
+    [0,4,8],[2,4,6]          // diagonals
+  ];
+
+  for (let [a,b,c] of winPatterns) {
+    if (board[a] && board[a] === board[b] && board[a] === board[c]) {
+      return board[a];
+    }
+  }
+
+  if (board.every(cell => cell)) return "draw";
+  return null;
+}
+
+function resetTicTacToe() {
+  board = Array(9).fill(null);
+  gameOver = false;
+  currentPlayer = "X";
+  statusEl.textContent = "Player X’s turn";
+  document.querySelectorAll(".cell").forEach(cell => (cell.textContent = ""));
+}
+
+// Window controls
+function openGame(game) {
+  document.getElementById(game + "Window").style.display = "block";
+  resetTicTacToe();
+}
+function closeGame(game) {
+  document.getElementById(game + "Window").style.display = "none";
+}
+
+
+
   </script>
+
 
 </body>
 </html>
