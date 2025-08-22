@@ -10,9 +10,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-  
+
   <style>
-/* intinal-state of page */
     * {
       margin: 0;
       padding: 0;
@@ -188,9 +187,6 @@
       box-shadow: inset 0 2px 3px rgba(0, 0, 0, 0.5);
     }
 
-/* os-state */
-    
-
     .desktop {
       width: 100%;
       height: 100%;
@@ -274,24 +270,26 @@
 .welcome-display {
   font-family: none;
   font-size: 22px;
-  cursor: alias;           
+  cursor: alias;           /* stays in place on screen */
   top: 0;
   left: 5;
   width: 60%;
-  height: 100%;              
+  height: 100%;              /* full screen height */
   display: flex;
   justify-content: center;  
   align-items: center;       /* center vertically */ 
   z-index: 16;
 }
 
-.heart{
+.heart img{
   color: rgba(45, 252, 41, 0.559);
   color:rgba(130, 249, 124, 0.391);
   animation: glowPulse 1.5s infinite ease-in-out;
+  filter: drop-shadow(0 0 10px rgba(130, 249, 124, 0.8));
 }
 
 .heart:hover {
+  color: rgba(130, 249, 124, 0.8);
   display: block;
 
 }
@@ -998,7 +996,7 @@
 
                 </div>
               <!----> <div class="welcome-display">
-                 <span id="typewriter" class="heart"><span style="font-size:24px;">🌴</span></span>
+                 <span id="typewriter" class="heart"><span style="font-size:24px;"><img style="width: 28px; " src="island.png" alt=""></span></span>
                  <button id="Reset" >Reset</button>
                 </div> 
               </div>
@@ -1402,20 +1400,25 @@
     const main = document.getElementById('main')
 
     button.addEventListener('click', () => {
-      button.style.display = 'none';
-      loadingText.style.display = 'block';
+  button.style.display = 'none';
+  loadingText.style.display = 'block';
 
-      anime({
-        targets: scaleContainer,
-        scale: 1.8,
-        duration: 1100,
-        easing: 'easeInOutQuad',
-        complete: () => {
-          desktop.style.display = 'block';
-          loadingText.style.display = 'none';
-        }
-      });
-    });
+  anime({
+    targets: scaleContainer,
+    scale: 1.8,
+    duration: 1100,
+    easing: 'easeInOutQuad',
+    complete: () => {
+
+      setTimeout(() => {
+        desktop.style.display = 'block';
+        loadingText.style.display = 'none';
+      }, 1173); // adjust this milli-sec
+    }
+  });
+});
+
+
 
     Reset.addEventListener('click', () => {
       desktop.style.display = 'none';
