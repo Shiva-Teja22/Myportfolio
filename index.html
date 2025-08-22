@@ -1902,7 +1902,7 @@
     setInterval(updateTime, 1000);
     updateTime();
 
-
+//education
   const tooltipData = {
     school: "⦿ St. John's Church High School",
     Diploma: "⦿ Govt. Polytechnic College (Masab Tank)",
@@ -1935,7 +1935,7 @@
 
 
 
-
+// the matrix bg
     const canvas = document.getElementById("matrixCanvas");
     const ctx = canvas.getContext("2d");
 
@@ -1965,8 +1965,6 @@
         const y = drops[i] * fontSize;
 
         ctx.fillText(text, x, y);
-
-        // Reset drop randomly
         if (y > canvas.height && Math.random() > 0.975) {
           drops[i] = 0;
         }
@@ -1982,7 +1980,7 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
-
+//tab drag function
     function makeDraggable(tabId) {
     const tab = document.getElementById(tabId);
     const header = tab.querySelector('.tab-header');
